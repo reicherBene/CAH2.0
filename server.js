@@ -8,4 +8,4 @@ server.listen(port, function () {
     console.log('Webserver läuft und hört auf Port %d', port);
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + "/public"));
