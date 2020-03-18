@@ -1,0 +1,146 @@
+p, a , button, pre		{font-family: 'Fira Sans', sans-serif}
+
+.headerholder			{width: 100%;height: 50px;background-color: #333333;position: absolute;
+						top: 0;left: 0;text-align:center;}
+.headerholder a			{color: #efefef;font-size:20px;position:
+						relative;top:15px;text-decoration: none;margin-left:20px;transition: 0.2s}
+.headerholder a:hover	{color:#1abc9c}
+#name					{position:absolute;top:15px;left:80px}
+#login					{position:absolute;top:15px;right:20px}
+.headerlogoholder		{width: 80px;height: 80px;background-color: #333333;position: absolute;
+						top:0; left:0;border-radius: 40px;z-index: 2}
+.headerlogoholder img	{position:relative;top:8px;z-index: 3;width:64px;height:64px}
+
+.headerholderm			{display:none;width:100%;height:50px;background-color:#333;position:absolute;top:0;left:0}
+.headerlogoholderm		{width:80px;height:80px;background-color:#333;position:absolute;left:calc(50% - 40px);top:0;border-radius:40px;z-index:2}
+.headerlogoholderm img	{position:relative;top:8px;z-index:3;width:64px;height:64px;lefT:8px}
+.burgerholder			{width:35px;height:24px;position:absolute;left:13px;top: 7px}
+.burger					{width:35px;height:4px;background-color: #1abc9c;margin: 6px 0}
+.sidenav				{height: calc(100% - 50px);width:0;position:fixed;z-index:1;top:50px;left:0;background-color:#333;overflow-x:hidden;transition:0.5s;padding-top:20px}
+.sidenav a				{padding: 8px 8px 8px 32px;text-decoration:none;font-size:24px;color: #efefef;display:block;transition:0.2s}
+.sidenav a:hover		{color: #1abc9c}
+
+.pagecontent			{position:fixed;height: calc(100% - 50px);width:100%;top:50px;left:0;overflow-x: hidden;
+						overflow-y: scroll;background-color: #efefef}
+				
+.footerholder			{width: 100%;height: 260px;position:relative;left:0;bottom:0;background-color: #333}
+.footersmholder			{width: 100%;height:50px;position:absolute;top:0;left:0;background-color: #222}
+.footerspacer			{height: 50%}
+.footercontent			{width:90%;height:180px;position:absolute;left:5%;top:70px}
+.footercontentleft		{width: 47.5%;height:100%;float:left}
+.footercontentright		{width: 47.5%;height:100%;float:right}
+.footercontent img		{width: 150px}
+.footercontent a		{text-decoration: none;color: #efefef;font-size: 16px;transition: 0.2s;margin-left: 12px}
+.footercontent a:hover	{color: #1abc9c}
+.footercontent br		{margin-top: 5px}
+
+.privacyholder			{width:90%;height:auto;background-color: #fff;margin:50px 0;position:relative;left:5%;top:0}
+.privacyheaderholder	{width:100%;height:50px;background-color: #333;position:relative;top:0;left:0}
+.privacyheaderholder p	{color:#efefef;text-align:center;font-size:22px;position:relative;top:14px}
+.privacytextholder		{width:90%;height:auto;background-color:#12346;position:relative;top:20px;left:5%;padding-bottom:40px}
+.privacytextholder p 	{color:#333;font-size:16px}
+.privacytextholder b 	{font-size:18px}
+
+.loginholder			{background-color:#fff;width:50%;height:550px;position:relative;top:50px;left:25%;margin-bottom:100px}
+.loginbtnlogin,
+.loginbtnregister		{width:50%;height:50px;border:none;background-color:#333;font-size:22px;transition:0.2s;color:#efefef}
+.loginbtnlogin:hover,
+.loginbtnregister:hover	{background-color:#222;font-size: 24px}
+.loginbtnlogin			{float:left}
+.loginbtnregister		{float:right}
+.loginbtnactive			{background-color:#1abc9c;padding-bottom:10px;height:60px}
+.loginbtnactive:hover	{background-color:#1abc9c;font-size:22px}
+.logindivlogin,
+.logindivregister		{width:90%;height: calc(100% - 100px);position:absolute;left:5%;top:80px}
+.logindivregister		{display:none;overflow-y:scroll;overflow-x:hidden }
+.logindivlogin p,
+.logindivregister p		{color: #333;font-size:20px}
+.logindivregister .s	{font-size: 12px}
+.logindivregister a		{font-size: 12px;color:#1abc9c;text-decoration: none}
+.loginbtnsubmit			{width:200px;height:50px;border:none;background-color:#1abc9c;position:absolute;left:calc(50% - 100px);bottom:20px;color:#efefef;font-size:22px;transition:0.2s}
+.loginbtnsubmit:hover	{font-size:24px;background-color:#0d9e81}
+.loginbtnsubmitr		{width:200px;height:50px;border:none;background-color:#1abc9c;position:relative;left:calc(50% - 100px);top:20px;color:#efefef;font-size:22px;transition:0.2s}
+.loginbtnsubmitr:hover	{font-size:24px;background-color:#0d9e81}
+
+.formtexts				{width:100%;border:none;border-bottom: 3px solid #1abc9c;height:26px;background-color: rgba(0,0,0,0);color:#333;font-size:20px;transition:0.2s}
+.formtexts:focus		{border-bottom-color: #333}
+.formtextl				{width:100%;border: 3px solid #1abc9c;height:150px;background-color:rgba(0,0,0,0);min-width:100%;max-width:100%;min-height:150px;color:#333;font-size:16px;max-height:150px;transition:0.2s}
+.formtextl:focus		{border-color:#333}
+.formselect				{width:100%;height:40px;font-size:18px;background-color:rgba(0,0,0,0);color:#333;border: 3px solid #1abc9c;transition:0.2s}
+.formselect:focus		{border-color:#333}
+
+.gamesholderlysin		{width:100%;height:300px;position:relative;left:0;top:50px;background-color:#fff}
+.gameslysinimageholder	{width:37.5%;height:260px;position:relative;top:20px;left:10%;background-size:cover;background-position:center center;background-repeat: no-repeat;background-image: url('../img/lysinpromo1.png')}
+.gameslysintextholder	{width:37.5%;height:260px;position:absolute;top:20px;right:10%}
+.gameslysintextholder p,
+.gamescoriumtextholder p{color:#333;position:relative;top:-30px}
+.gameslysintextholder .caption,
+.gamescoriumtextholder .caption	{font-size: 24px;color:#1abc9c;position:relative;top:-30px}
+
+.gamesholdercorium		{width:100%;height:300px;position:relative;left:0;top:100px;background-color:#fff}
+.gamescoriumimageholder	{width:37.5%;height:260px;position:absolute;right:10%;top:20px;background-color:#123456}
+.gamescoriumtextholder	{width:37.5%;height:260px;position:absolute;top:20px;left:10%}
+
+.gamesodbholder			{width:70%;height:400px;position:relative;top:150px;left:15%;background-color: #fff}
+.gamesodbcaption		{width:100%;height:50px;position:relative;top:0;left:0;background-color: #333;text-align:center}
+.gamesodbcaption p		{color:#efefef;font-size:22px;position:relative;top:14px;font-weight: bold}
+
+.gamesdlbtn		{background-color: #1abc9c;color:#efefef;font-size:22px;border:none;width:200px;height:50px;cursor:pointer;transition:0.2s}
+.gamesdlbtn:hover	{background-color: #0d9e81;font-size:24px;}
+.gamesdlcontent	{display:none;position:absolute;background-color: #333;width:200px;z-index:10}
+.gamesdlcontent a	{color:#efefef;padding:12px 16px;text-decoration:none;display:block}
+.gamesdlcontent a:hover	{background-color:#1abc9c}
+.gamesdl			{position:absolute;bottom:0}
+.gamesdl:hover .gamesdlcontent	{display:block}
+
+.supportticketfaqholder	{width:80%;height:530px;position:relative;left:10%;top:50px}
+.supportticketfaqcaption{width:100%;height:50px;background-color:#333;text-align:center;position:relative;top:-22px}
+.supportticketfaqcaption p	{font-size:22px;color:#efefef;position:relative;top:12px}
+.supportticketholder	{width:55%;height:100%;float:left;background-color:#fff}
+.supportfaqholder		{width:40%;height:auto;float:right;background-color:#fff}
+.supportticketformholder{width:90%;height:calc(100% - 90px);position:relative;left:5%;top:-20px}
+.supportticketformholder p	{color:#333}
+.supportticketbtn		{color:#efefef;width:200px;height:50px;background-color:#1abc9c;font-size:22px;position:relative;top:20px;left:calc(50% - 100px);border:none;transition:0.2s}
+.supportticketbtn:hover	{background-color:#0d9e81;font-size:24px}
+.supportstatusholder	{width:40%;height:170px;float:right;background-color: #fff;margin-bottom:50px}
+.supportstatusformholder	{width:90%;height:calc(100% - 90px);position:relative;left:5%;top:-20px}
+.supportstatusformholder p	{font-size:16px;color:#333}
+.supportstatusinput		{width:calc(100% - 65px);height:25px;background-color:rgba(0,0,0,0);border:none;border-bottom: 3px solid #1abc9c}
+.supportstatusinput:focus	{border-bottom-color:#333}
+.supportstatusbtn		{margin-left:20px;width:35px;height:35px;background-color:#1abc9c;border:none;color:#efefef;font-size:16px;transition:0.2s}
+.supportstatusbtn:hover	{background-color:#0d9e81}
+.supportfaqcontentholder{width:90%;height:calc(100% - 90px);position:relative;left:5%;top:-2px;margin-bottom:10px}
+.supportfaqaccordion	{margin-bottom:10px;background-color: #333;color:#efefef;cursor:pointer;padding: 5px 10px;width:100%;border:none;text-align:left;outline:none;font-size:18px;transition:0.2s}
+.supportfaqactive,
+.supportfaqaccordion:hover	{background-color:#1abc9c}
+.supportfaqpanel		{padding:0 10px;background-color: #fff;max-height:0px;overflow:hidden;transition: max-height 0.2s ease-out}
+
+.alert					{height:50px;width:100%;position:absolute;top:50px;left:0;z-index:0;text-align:center}
+.alert p				{color:#efefef;font-size:20px;position:relative;top:-5px}
+.error					{background-color: #e74c3c}
+.warning				{background-color: #f1c40f}
+.success				{background-color: #2ecc71}
+.info					{background-color: #2980b9}
+
+
+
+@media screen and (max-width: 750px) {
+	.headerholder		{display: none}
+	.headerholderm		{display: block}
+	
+	.loginholder		{width:90%;left:5%}
+	
+	.gamesholderlysin,
+	.gamesholdercorium	{height:580px}
+	.gameslysinimageholder,
+	.gamescoriumimageholder,
+	.gamesodbholder		{width:100%;left:0}
+	.gameslysintextholder,
+	.gamescoriumtextholder	{width:80%;top:300px}
+	
+	.supportticketfaqholder	{height:900px}
+	.supportticketholder	{width:100%;height:auto;float:none}
+	.supportstatusholder	{float:none;width:100%;margin-top:50px}
+	.supportfaqholder		{float:none;width:100%;margin-top:50px;height:auto}
+	
+}
