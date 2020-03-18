@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		
-		<?php include_once 'inc/header.inc.php';?>
+		<?php //include_once 'inc/header.inc.php';?>
 		
 		<div class="pagecontent">
 		
