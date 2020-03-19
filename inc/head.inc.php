@@ -1,8 +1,8 @@
 <?php session_start();?>
 
-<link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/dark.css">
 
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<!-- <link rel="icon" href="img/favicon.ico" type="image/x-icon"> -->
 
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700" rel="stylesheet">
 
