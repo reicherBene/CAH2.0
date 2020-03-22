@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GameSeite</title>
+       
+    </head>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('allSelected', function(){
+          //TODO czar choose
+          document.getElementById('choosen').hidden = true;
+          document.getElementById('selectWhiteCard').hidden = true;
+          document.getElementById('waitCzar').hidden = false;
+      });
+    </script>
+    <script>
+        var array = ["01", "02", "03", "04", "05"];
+         function pressed(id){
+            console.log("current button " + id);
+            document.getElementById(id).disabled = true;
+            document.getElementById(id).style.backgroundColor = "red";
+
+            console.log(array);
+            console.log(array);
+            
+            array.forEach(element => {
+                console.log('edit ' + element);
+                if (element == id){
+                    return;
+                }
+                var button = document.getElementById(element);
+                button.disabled = false;
+                button.style.backgroundColor = "";
+            });
+         }
+
+         function submit(){
+            var selectedButton;
+            array.forEach(element => {
+                if (selectedButton != undefined){
+                    return;
+                }
+                if (document.getElementById(element).disabled == true){
+                    selectedButton = element;
+                }
+            });
+            if (selectedButton != undefined){
+                socket.emit('selected', {id: socket.id, button: selectedButton});
+            }
+            document.getElementById('choosen').hidden = false;
+            console.log('show chosen');
+         }
+    </script>
+    
+      <body>
+        <div id="selectWhiteCard">
+          <button id = "01", onclick="pressed('01')">Erste white card</button>
+          <button id = "02", onclick="pressed('02')">zweite white card</button>
+          <button id = "03", onclick="pressed('03')">dritte white card</button>
+          <button id = "04", onclick="pressed('04')">vierte white card</button>
+          <button id = "05", onclick="pressed('05')">fünfte white card</button>
+          <p>heir sehen sie die gameSeite</p>
+          <button onclick="submit()">Penis</button>
+        </div>
+
+        <div id="choosen", hidden = true>
+            <p>choosen todo card</p>
+        </div>
+        
+        <div id="waitCzar", hidden = true>
+            <!--TODO show options-->
+            <p>waiting for Czar to choose Card</p>
+        </div>
+       
+      </body>
+</html>
