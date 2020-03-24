@@ -45,6 +45,10 @@ class Game{
     getSettings(){
         return this.#settings;
     }
+
+    getSb(){
+        //TODO
+    }
 }
 
 module.exports = Game;

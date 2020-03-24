@@ -1,4 +1,4 @@
-const Game = require('./game.js');
+// const Game = require('./js/game.js');
 
 var app = require('express')();
 var server = require('http').Server(app);
@@ -16,6 +16,16 @@ var games=[];
 app.get('/', function(req, res){
   // console.log('basic file req')
   res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/test', function(req, res){
+  // console.log('basic file req')
+  res.sendFile(__dirname + '/test.html');
+});
+
+app.get('/test2', function(req, res){
+  console.log('test2 file req')
+  res.sendFile(__dirname + '/test2.html');
 });
 
 app.get('/index.html', function(req, res){
