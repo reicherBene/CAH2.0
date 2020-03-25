@@ -4,7 +4,7 @@
 }
 
 html, body				{height: 100%}
-p, a , button			{font-family: 'Fira Sans', sans-serif}
+p, a , button			{font-family: 'Fira Sans', sans-serif; color: #222}
 
 .headerholder			{width: 100%; height: var(--headerheight); background-color: #333333; position: fixed;
 						top: 0; left: 0; text-align:center; z-index: 1000}
@@ -15,11 +15,47 @@ p, a , button			{font-family: 'Fira Sans', sans-serif}
 .headerholder #login	{position: absolute; top: 15px; right: 20px}
 .headerlogoholder		{width: 80px;height: 80px;background-color: #333333;position: absolute;
 						top:0; left:0;border-radius: 40px;z-index: 2}
-.headerlogoholder img	{position: relative; top: 8px; z-index: 3; width: 64px; height: 64px}
+.headerlogoholder img	{position: relative; top: 8px;left: 8px ;z-index: 3; width: 64px; height: 64px}
 
-.page-container			{position: absolute; min-height: 100vh; width: 100%; top: 0; left: 0; overflow: hidden;
-						background-color: #efefef; padding-top: 16px}
-.content-wrap			{padding-bottom: var(--footerheight); padding: 20px; padding-top: 84px; padding-bottom:  280px}
+.header-container-empty {
+	width: 100%;
+	height: var(--headerheight);
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+.header-container-empty a {
+	color: #efefef;
+	font-size: 25px;
+	font-family: "Gotham", sans-serif;
+	font-weight: bold;
+	position: absolute;
+	left: 100px;
+	top: 8px;
+	text-decoration: none;
+	transition: 0.2s;
+}
+.header-container-empty a:hover {
+	color: #1abc9c;
+}
+
+.page-container {
+	position: absolute;
+	min-height: 100vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	background-color: #efefef;
+	padding-top: 16px;
+	background-image: url("");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover
+}
+.content-wrap			{margin-bottom: var(--footerheight); padding: 20px; padding-top: 84px; padding-bottom:  280px}
 
 .footer-container		{width: 100%; height: var(--footerheight); position: absolute; left: 0; bottom: 0; background-color: #333}
 .footersmholder			{width: 100%;height: 50px; position: absolute; top: 0; left: 0; background-color: #222}
@@ -31,3 +67,15 @@ p, a , button			{font-family: 'Fira Sans', sans-serif}
 .footercontent a		{text-decoration: none; color: #efefef; font-size: 16px; transition: 0.2s; margin-left: 12px}
 .footercontent a:hover	{color: #1abc9c}
 .footercontent br		{margin-top: 5px}
+
+.login-container		{width: 300px; position: absolute; left: calc(50% - 150px)}
+
+.input					{border: none; border-bottom: 3px solid #1abc9c; width: 100%; height: 35px; background-color: rgba(0,0,0,0); color: #333; font-size 30px; transition: 0.2s}
+.input:hover, 
+.input:focus			{border-bottom-color: #333}
+.btn					{width: calc(50% - 20px); height: 35px; position: absolute; color: #efefef; background-color: #333; border: none; transition: 0.2s; font-size: 18px}
+.btn:hover				{background-color: #1abc9c}
+.btn-register {
+	right: 0;
+	bottom: -19px
+}
