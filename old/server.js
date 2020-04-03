@@ -1,17 +1,8 @@
-// const Game = require('./js/game.js');
+// const Game = require('./js/Game.js');
 
 var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
-const numLobbyPlayer = 2;
-var countPlayer = 0;
-var countInGamePlayer = 0;
-var totalConnections = 0;
-var playerSelected = 0;
-var players = [];
-var games=[];
-
 
 app.get('/', function(req, res){
   // console.log('basic file req')
