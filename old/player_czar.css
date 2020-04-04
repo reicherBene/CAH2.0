@@ -1,0 +1,13 @@
+/*inGame*/
+#czarContent{
+  display: block;
+}
+#slaveContent{
+  display: none;
+}
+#czarText{
+  display: block;
+}
+#slaveText{
+  display: none;
+}

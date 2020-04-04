@@ -1,0 +1,17 @@
+@import "user_player.css";
+/*Lobby*/
+#user_default{
+	visibility: visible;
+	width: auto;
+	height: auto;
+}
+#user_host{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+#user_player{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}

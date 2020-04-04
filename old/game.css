@@ -1,0 +1,199 @@
+.card{
+	width: 250px;
+	height: 210px;
+	padding: 20px;
+	padding-top: 40px;
+	line-height: 150%;
+}
+
+#gameContainer{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+/*black Card*/
+#blackCard{
+	margin-left: 10px;
+	background-color: var(--blackCard);/*#38383D*/
+	color: white;
+}
+
+#topContent{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+/*scoreboard*/
+#playerBoard{
+	display: flex;
+	
+	height: auto;
+	width: 500px;
+	padding: 10px;/*
+	align-items: center;
+	justify-content: center;*/
+}
+
+#scoreboard{
+	border-collapse: collapse;
+	/*border: 1px solid black;*/
+	width: 55%;
+	margin: 5px 15px;
+}
+#scoreboard th{
+	height: 30px;
+	/*border: 1px solid grey;*/
+	border-bottom: 2px solid var(--basicText);
+}
+#scoreboard td{
+	/*border-top: 1px solid lightgrey;*/
+	height: 23px;
+	/*border: 1px solid grey;*/
+	vertical-align: bottom;
+}
+.nameCell{
+	text-align: left;
+}
+.scoreCell{
+	text-align: center;
+}
+
+/*white Cards*/
+#whiteCardContainer{
+	margin-right: 0px;
+	margin-top: 0px;
+	border-radius: 4px;
+	width: 100%;
+}
+
+#instructionBox{
+	padding: 10px 0px 0px 0px;
+	margin: 5px 25px 5px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+#instruction{
+	margin: 0px;
+}
+#timerBar{
+	height: 25px;
+	width: 500px;
+	margin: 0px;
+	border-radius: 6px;
+	border: 2px solid lightgrey;
+	background: var(--tBarBackground);
+}
+#ladebalkenReverse{
+	height: 25px;
+	border-radius: 4px;
+	/*in html-Seite
+	transition: width 30s, background 30s;
+	transition-timing-function: linear, linear;
+	*/
+}
+.tBarFull{
+	background: var(--tBarFull);
+	width: 100%;
+	border-radius: 4px;
+}
+.tBarEmpty{
+	background: var(--tBarEmpty);
+	width: 0px;
+	border-radius: 4px 0px 0px 4px;
+}
+
+#whiteCards{
+	padding: 5px 10px;
+	padding-top:0px;
+	margin-top: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#gameControl{
+	/*border: 1px solid black;*/
+	border-radius: 0px 0px 4px 4px;
+	display: flex;
+	justify-content: right;
+	margin-bottom: 0px;
+}
+#applyCard{
+	margin: 10px;
+	margin-right: 10px;
+}
+
+.wc{
+	width: 150px;
+	height: 180px;
+	padding-top: 15px;
+	background: var(--whiteCard);
+	box-shadow: inset -1px -1px 1px var(--cardShadowColor1), inset 1px 1px 1px var(--cardShadowColor2),0px 0px 4px var(--cardShadowColor2);
+}
+.wc .burner{
+	display: block;
+	margin-top: 0px;
+	margin-right: 0px;
+	float: right;
+	
+}
+.wc:hover, .chosen{
+	box-shadow: inset -1px -1px 1px var(--secondary), inset 1px 1px 1px var(--secondary),0px 0px 6px var(--buttonShadowColor);
+}
+.disabled{
+  color: grey;
+}
+.disabled:hover{
+	box-shadow: inset -1px -1px 1px var(--cardShadowColor1), inset 1px 1px 1px var(--cardShadowColor2),0px 0px 4px var(--cardShadowColor2);
+}
+.applied, .applied:hover{
+	box-shadow: inset -1px -1px 1px var(--tertiary), inset 1px 1px 1px var(--tertiary),0px 0px 6px var(--tertiary);
+}
+.burner{
+	height: 20px;
+	width: 20px;
+}
+.burner:hover{
+	box-shadow: 0px 0px 1px lightgrey;
+}
+.hide{
+	display: none;
+}
+
+#applyCard{
+	
+}
+
+/*Czar only*/
+#czarInfo{
+	padding: 10px;
+	margin-right: 0px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Statusanzeige unten*/
+#statusBox{
+	position: relative;
+	float: left;
+	width: 100%;
+	min-height: 0px;
+	height: auto;
+	margin-top: 0px;
+	padding:10px 0px;
+}
+#statusBox ul li{
+	list-style-type: none;
+	padding: 10px 10px 0px 0px;
+}
+.gameError{
+	color: var(--error);
+}
