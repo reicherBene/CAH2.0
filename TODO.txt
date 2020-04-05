@@ -4,7 +4,8 @@ Optik:
     - joinGame: Liste mit "Lobbynamen" und "Anzahl Spieler/max. Spieler
     - create Game: Liste Auswahlmöglichkeiten: WC(schlage Liste mit Packeten(Häckchen seztten) vor), maxSpieler(3-20 vorschlag), maxPunkte(50), Spielname(String Eingabe), Spielpasswort(String Eingabe)
     - Lobby warte-Seite: Liste mit Teilnehmer, startbutton, eventuell: chat, settings(siehe createGame)
-    - Spielseite: 
+    - Spielseite:
+        wegen socket.io müssen alle Element in eine html-Datei und werden bei Bedarf ein/ausgeblendet
         auf jeder Seite: Scoreboard
         - Wartebildschirm für Czar: mit BC eventuell: seine WC
         - Auswahl der WC für Slaves: mit BC(schlage max 5 in einer Reihe vor) und WC
