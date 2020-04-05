@@ -1,0 +1,14 @@
+Optik:
+    - erste Seite: nickname input;
+    - Startseite: buttons für create/join Game
+    - joinGame: Liste mit "Lobbynamen" und "Anzahl Spieler/max. Spieler
+    - create Game: Liste Auswahlmöglichkeiten: WC(schlage Liste mit Packeten(Häckchen seztten) vor), maxSpieler(3-20 vorschlag), maxPunkte(50), Spielname(String Eingabe), Spielpasswort(String Eingabe)
+    - Lobby warte-Seite: Liste mit Teilnehmer, startbutton, eventuell: chat, settings(siehe createGame)
+    - Spielseite: 
+        auf jeder Seite: Scoreboard
+        - Wartebildschirm für Czar: mit BC eventuell: seine WC
+        - Auswahl der WC für Slaves: mit BC(schlage max 5 in einer Reihe vor) und WC
+        - Auswahl des Gewinners für Czar: BC und alle gelegten WC(es können auch immer 2 WC zusammen gehören)
+        - Wartebildschirm für Slaves: BC alle gelegten WC
+        - Gewinnerdisplay:
+        - Endbildschirm: Scoreboard

@@ -13,7 +13,8 @@ function getConnection() {
   
   connection.connect(function(err) {
     if (err){
-      console.log(err);
+      console.log('error at connecting to database');
+      console.log('ERROR: ' + err.message);
     } else {
       console.log('Connected');
     }

@@ -1,5 +1,4 @@
 
-
 dbConnection = require('./dbConnection.js')();
 // console.log(db);
 // dbConnection = db();
@@ -28,8 +27,10 @@ class Scripts {
     
   }
 
-  static addPlayer(gameID) {
+  static addPlayer(gameID, playerID, socketID) {
     var req = "UPDATE games SET numPlayer = numPlayer + 1 WHERE gameID = '" + gameID + "'";
+    dbConnection.query(req);
+    var req = "INSERT INTO player (playerID, gameID, socketID) VALUES ('" + playerID + "', '" + gameID + "', '" + socketID + "') ";
     dbConnection.query(req);
     console.log('Player joined game ' + gameID);
   }

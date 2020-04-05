@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="/socket.io/socket.io.js"></script>
-        <script> var socket = io('/CAHGame'); </script>
+        <script> var socket = io('/lobby'); </script>
     </head>
     <body>
         <p>
@@ -10,7 +10,7 @@
         </p>
         <p id='lobbyID'></p>
         <!-- only visable if user is creator -->
-        <button id='createGame', onClick='startGame()', style="visibility: hidden">please fick me</button>
+        <button id='startGame', onClick='startGame()', style="visibility: hidden">please fick me</button>
     </body>
 
     <script>
@@ -18,7 +18,7 @@
     </script>
 
     <script>
-        var button = document.getElementById('createGame');
+        var button = document.getElementById('startGame');
         // console.log(window.sessionStorage.getItem('master'));
         if (window.sessionStorage.getItem('master')==='true'){
             button.style.visibility='visible';
@@ -34,15 +34,16 @@
         //get user id from session variable
         var isMaster = false;
         if (isMaster){
-            document.getElementById('createGame').style.visibility='visible';
+            document.getElementById('startGame').style.visibility='visible';
         }
 
         //get gameId
         // var gameId = "";
-        var userId = "default user";
+        // var userId = "default user";
         var gameID = window.sessionStorage.getItem('gameID');
-        
-        socket.emit('inWaitingLobby', gameID);
+        var playerID = "defPlayer";
+
+        socket.emit('inWaitingLobby', gameID, playerID);
 
         socket.on('startGame', function(){
             window.location.href = '/game.html';
