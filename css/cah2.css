@@ -168,38 +168,3 @@ footer a:hover{
 		box-shadow: 0px 0px 4px var(--borderColor);
 	}
 }
-
-
-
-
-#headerNav{
-	position: absolute;
-	right: 20px;
-	top: 14px;
-	align-items: baseline;
-	color: var(--coloredText);
-}
-#headerNav li, #headerNav a{
-	display: inline-block;
-	color: var(--coloredText);
-	text-shadow: 0px 0px 2px var(--cTShadowColorOD);
-}
-#title{
-	font-size: 50px;
-	max-width: 900px;
-	margin: 5px 0px 5px 10px;
-	text-shadow: 0px 0px 4px white;
-}
-#subtitle{
-	color: var(--coloredText);
-	text-shadow: 0px 0px 5px var(--cTShadowColorOD);
-	font-size: 50px;
-	margin-left: 15px;
-}
-#title:hover{
-	text-shadow: 0px 0px 10px white;
-}
-#subtitle:hover{
-	text-shadow: 0px 0px 10px var(--cTShadowColorOD);
-}
-
