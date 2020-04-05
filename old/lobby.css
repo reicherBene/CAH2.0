@@ -1,0 +1,234 @@
+.box{
+	min-height: 500px;
+}
+
+#pageContent{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+	margin-top: 0px;
+}
+
+/*
+.php-code{
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+*/
+
+/* Mitspieleranzeige 
+#userListBox{
+	position: relative;
+	float: left;
+}*/
+#userList{
+	padding: 10px 30px 15px 0px;
+	width: 275px;
+	min-height: 200px;
+}
+#userList ol li{
+	padding: 10px 0px 10px 0px;
+	max-width: 220px;
+	overflow: auto;
+}
+#player1{
+	color: var(--coloredText);
+	text-shadow: 0px 0px 1px var(--cTShadowColorOL);
+}
+
+/* Platzhalter-Box in der Mitte bis 1040px*/
+#middleContainer{
+	display: flex;
+	flex-direction: column;
+	
+}
+
+#infoBox{
+	min-height: 0px;
+}
+/*
+#infoBox{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}*/
+
+@media (max-width: 1600px) AND (min-width: 1200px){ /*Möglichkeit zum berechnen Anhand der screenweite?*/
+	#infoBox{
+  	flex-basis: calc(100% - 741px);
+  	margin-right: 10px;
+  	padding: 40px;
+  	position: relative;
+  	float: left;
+  	min-width: 200px;
+		max-height: 100px;
+  }
+	#infoText{ /* length: ~491px, half: 245.5px*/
+  	font-size: 20px;
+  	position: relative;
+  	margin-left: calc(50% - 246px);
+		/*top: 200px;*/
+		max-height: 100px;
+  }
+  #infoColored{
+	 color: var(--coloredText);
+	 text-shadow: 0px 0px 1px var(--cTShadowColorOL); /*OD bei Design mit background grey*/
+		max-height: 100px;
+  }
+} 
+@media (max-width: 1200px){
+	#infoBox{
+  	flex-basis: 540px;
+  	margin-right: 10px;
+  	padding: 40px;
+  	position: relative;
+  	float: left;
+  	min-width: 200px;
+		max-height: 100px;
+  }
+	#infoText{ /* length: ~491px, half: 245.5px*/
+  	font-size: 20px;
+  	position: relative;
+  	margin-left: calc(50% - 246px);
+		/*top: 200px;*/
+		max-height: 100px;
+  }
+  #infoColored{
+	 color: var(--coloredText);
+		max-height: 100px;
+	 text-shadow: 0px 0px 1px var(--cTShadowColorOL); /*OD bei Design mit background grey*/
+  }
+} 
+
+#middleContainer{
+	margin-right: 10px;
+	height: 600px;
+	margin-bottom: 10px;
+}
+
+#infoBox{
+  max-height: 100px;
+	margin-right: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 500px;
+}
+#infoText{
+}
+
+#codeBoxCont{
+	height: auto;
+	margin: 0px;
+}
+#codeBox{
+	padding: 30px;
+	padding-top: 25px;
+	display: flex;
+	flex-direction: row;
+}
+
+#labelCont{
+	display: flex;
+	flex-direction: column;
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+#innerLabelCont1{
+	padding: 5px 0px 10px 30px;
+	display: flex;
+}
+#innerLabelCont2{
+	display: flex;
+	flex-direction: row-reverse;
+}
+#packLabel{
+	margin-top: 0px;
+}
+#packCode{
+	height: 20px;
+	width: 70px;
+	
+}
+#codeList{
+	padding: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	padding-left: 20px;
+	border-left: 1px solid var(--separatorColor);
+}
+.codeElement{
+	border: 1px solid var(--separatorColor);
+	padding: 5px;
+	margin-bottom: 5px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 1px var(--separatorColor);
+	width: 180px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.codeEName{
+	padding: 0px;
+	margin: 0px;
+}
+.burner{
+	height: 20px;
+	width: 20px;
+	padding-left: 5px;
+}
+
+.selector{
+	width: 50px;
+	float: right;
+	margin-left: 10px;
+}
+
+/* Einstellungen */
+#settingBox{/*
+	position: relative;
+	float: right;*/
+	margin-right: 0px;
+}
+#settings{
+	padding: 10px 50px 15px 0px;
+	visibility: hidden;
+}
+#settings ul li{
+	display: block;
+	padding: 0px 0px 20px 10px;
+	visibility: visible;
+}
+#numWin{
+	width: 47px;
+}
+#startenBox{
+	float: right;
+	margin-top: 10px;
+}
+
+/*Statusanzeige unten*/
+#statusBox{
+	position: relative;
+	float: left;
+	width: 100%;
+	min-height: 0px;
+	height: auto;
+	margin-top: 0px;
+	padding:10px 0px;
+}
+#statusBox ul li{
+	list-style-type: none;
+	padding: 10px 10px 0px 0px;
+	display: flex;
+}
+#statusBox ul li .selector{
+	width: auto;
+}
+#status{
+	font-size: 25px;
+}

@@ -1,0 +1,21 @@
+/*Lobby*/
+#settingBox{
+  visibility: visible;
+}
+#user_player{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+#user_default{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+
+/*Game*/
+#whiteCardContainer{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}

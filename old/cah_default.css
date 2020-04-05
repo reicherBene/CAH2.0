@@ -1,0 +1,153 @@
+html{
+	background: var(--htmlBackground);
+	color: var(--basicText);
+	font-family: var(--fontFamily);
+	font-variant: var(--fontVariant);
+	height: auto;
+}
+h2{
+	font-size: 24px;
+	color: var(--coloredText);
+	text-shadow: 0px 0px 2px var(--cTShadowColorOL);
+	padding: 0px 20px 0px 20px;
+}
+ul, ol{
+	list-style-type: none;
+}
+a{
+	color: var(--basicText);
+	text-shadow: 0px 0px 20px var(--bTShadowColor);
+	text-decoration: none;
+}
+a:hover{
+	text-decoration:underline;
+	color: var(--coloredText);
+	text-shadow: 0px 0px 2px var(--cTShadowColorOL);
+}
+
+*::selection{
+	background-color: var(--tertiary);
+	color: var(--background);
+	text-shadow: none;
+}
+
+header{
+	background: var(--darkBackground);
+	color: white;
+	border-radius: 5px;
+	box-shadow: 2px 2px 6px var(--tBoxShadowColor);
+}
+#headerNav{
+	position: absolute;
+	right: 20px;
+	top: 14px;
+	align-items: baseline;
+	color: var(--coloredText);
+}
+#headerNav li, #headerNav a{
+	display: inline-block;
+	color: var(--coloredText);
+	text-shadow: 0px 0px 2px var(--cTShadowColorOD);
+}
+#title{
+	font-size: 50px;
+	max-width: 900px;
+	margin: 5px 0px 5px 10px;
+	text-shadow: 0px 0px 4px white;
+}
+#subtitle{
+	color: var(--coloredText);
+	text-shadow: 0px 0px 5px var(--cTShadowColorOD);
+	font-size: 50px;
+	margin-left: 15px;
+}
+#title:hover{
+	text-shadow: 0px 0px 10px white;
+}
+#subtitle:hover{
+	text-shadow: 0px 0px 10px var(--cTShadowColorOD);
+}
+
+.box, .loginholder{
+	background: var(--boxBackground);
+	margin: 10px 10px 10px 0px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px var(--boxShadowColor);
+}
+
+.button{
+	background: transparent;
+	border-radius: 6px;
+	padding: 5px 10px;
+	color: var(--basicText);
+	font-family: var(--fontFamily);
+	font-variant: var(--fontVariant);
+}
+.button:hover{
+	box-shadow: 2px 2px 3px var(--buttonShadowColor), -2px -2px 3px var(--buttonShadowColor), 2px -2px 3px var(--buttonShadowColor), -2px 2px 3px var(--buttonShadowColor);
+	color: var(--coloredText);
+	text-shadow: 0 0 1px var(--cTShadowColorOL);
+}
+
+.selectorBox{
+	margin-top: 10px;
+}
+.selector{
+	border: none;
+	border-bottom: 2px solid #C7C7C7;
+	border-top: var(--selectorBorder);
+	border-left: var(--selectorBorder);
+	border-right: var(--selectorBorder);
+	border-radius: 4px 4px 4px 0px;
+	background-color: var(--boxBackground);
+	box-shadow: 0px 0px 2px var(--selectorShadow);
+	color: var(--basicText);
+	font-family: var(--fontFamily);
+	font-variant: var(--fontVariant);
+}
+
+.selector option{
+	background-color: var(--background);
+	color: var(--basicText);
+	text-shadow: 0px 0px 0px var(--basicText);
+}
+
+.selector:hover, .selector:focus-within{
+	border-bottom: 2px solid var(--cTShadowColorOL);
+	box-shadow: 0px 0px 2px var(--cTShadowColorOL);
+}
+.selectorBox:hover,.selectorBox:focus-within{
+	color: var(--coloredText);
+	text-shadow: 0px 0px 2px var(--cTShadowColorOL);
+}
+
+.burner{
+	height: 20px;
+	width: 20px;
+}
+.burner:hover{
+	box-shadow: 0px 0px 1px lightgrey;
+}
+
+footer{
+	position: relative;
+	float: left;
+	width: 100%;
+	z-index: -1;
+	margin-bottom: 10px;
+	background: var(--darkBackground);
+	color: var(--footerText);
+	border-radius: 5px;
+	padding: 10px 0px;
+	box-shadow: 2px 2px 6px var(--tBoxShadowColor);
+}
+footer ul li{
+	padding: 5px;
+}
+footer a{
+	color: var(--footerText);
+}
+footer a:hover{
+	color: var(--footerTextHover);
+	text-shadow: var(--ftHoverShadow);
+}

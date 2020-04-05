@@ -1,0 +1,25 @@
+/*Lobby*/
+#settingBox{
+  visibility: hidden;
+  width: 0px;
+}
+#settings{
+  visibility: hidden;
+}
+#settings ul li{
+  visibility: hidden;
+}
+#infoBox{
+  width: calc(100% - 315px);
+}
+
+#user_host{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}
+#user_default{
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+}

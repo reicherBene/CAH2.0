@@ -1,0 +1,20 @@
+/*inGame*/
+#czarInfo{
+  padding: 0px;
+  margin: 0px;
+  height: 0px;
+  width: 0px;
+  visibility: hidden;
+}
+#czarText{
+  display: none;
+}
+#czarContent{
+  display: none;
+}
+#slaveContent{
+  display: block;
+}
+#slaveText{
+  display: block;
+}
