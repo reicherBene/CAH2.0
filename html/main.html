@@ -1,18 +1,37 @@
 <html>
-<head>
-    <script src="/socket.io/socket.io.js"></script>
-</head>
+	<head>
+		<title>Welcome | Cards Against Humanity</title>
+		<link rel="icon" href="img/icon.png" type="images/x-icon">
+		
+		<link rel="stylesheet" href="../css/cah2.css">
+		<link rel="stylesheet" href="../css/main.css">
+	</head>
 
-<!-- <script> 
-    socket=io();
-    socket.on('playerID', function(playerID) {
-        window.sessionStorage.setItem('playerID', playerID);
-    });
-</script> -->
-
-<body>
-    <button onclick="window.location.href='/createGame.html'">create Game</button>
-    <button onclick="window.location.href='/joinGame.html'">join Game</button>
-</body>
-
+	<body>
+		<header>
+			<h1>Cards Against Humanity</h1>
+		</header>
+		<main>
+			<div id="content">
+				<h2 id="welcome">Welcome to Cards Against Humanity!</h2>
+				<ul>
+				<li><div>
+					<label for="nickname">Choose your nickname:</label>
+					<input name="nickname" id="nickname" type="text">
+				<li><div id="btnDiv">
+					<button onclick="window.location.href='/createGame.html'">Create new game</button>
+					<button onclick="window.location.href='/joinGame.html'">Join existing game</button>
+				</div></li>
+				</ul>
+				
+			</div>
+		</main>
+		<footer>
+			<ul>
+			    <li><a href="http://www.lysin-games.com/agb">Allgemeine Gesch&auml;ftsbedingungen</a></li>
+			    <li><a href="http://www.lysin-games.com/datenschutz">Datenschutzerkl&auml;rung</a></li>
+				<li><a href="http://www.lysin-games.com/impressum">Impressum</a></li>
+			</ul>
+		</footer>
+	</body>
 </html>
