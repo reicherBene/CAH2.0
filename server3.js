@@ -10,7 +10,7 @@ console.log("server started listen on Port " + port);
 
 var totalConnections = 0;
 // const initialFile = '/game.html';
-const initialFile = '/main.html';
+const initialFile = '/html/main.html';
 
 var CAHNSP = io.of('/CAHGame');
 var DBNSP = io.of('/DB');
@@ -24,11 +24,15 @@ var LOBBYNSP = io.of('/lobby');
 //answer http request
 function handler (req, res) {
     var url = req.url;
+    // console.log(url);
+
     if (req.url == '/'){
         url = initialFile;
+    } else if (url.endsWith('.html')) {
+        url = '/html/' + url;
     }
-    fs.readFile(__dirname + "/html" + url,
-    function (err, data) {
+
+    fs.readFile(__dirname + url, function (err, data) {
         if (err) {
             res.writeHead(500);
             return res.end('Error loading ' + url);
