@@ -2,7 +2,7 @@ class Player {
     /**
      * 
      */
-    // #userID = "";
+    #id = "";
     #socketID = "";
     #gameID = "";
     #nickname = "";
@@ -16,7 +16,9 @@ class Player {
         this.nickname = nickname;
     }
 
-   
+   valueOf(){
+       return this.#id;
+   }
 
 }
 

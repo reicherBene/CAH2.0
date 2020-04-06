@@ -4,7 +4,8 @@
 		<link rel="icon" href="img/icon.png" type="images/x-icon">
 		
 		<link rel="stylesheet" href="../css/cah2.css">
-		<link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <script>const maxNickname=32</script>
 	</head>
 
 	<body>
@@ -19,11 +20,10 @@
 					<label for="nickname">Choose your nickname:</label>
 					<input name="nickname" id="nickname" type="text">
 				<li><div id="btnDiv">
-					<button onclick="window.location.href='/createGame.html'">Create new game</button>
-					<button onclick="window.location.href='/joinGame.html'">Join existing game</button>
+					<button onclick="createGame()">Create new game</button>
+					<button onclick="joinGame()">Join existing game</button>
 				</div></li>
 				</ul>
-				
 			</div>
 		</main>
 		<footer>
@@ -32,6 +32,34 @@
 			    <li><a href="http://www.lysin-games.com/datenschutz">Datenschutzerkl&auml;rung</a></li>
 				<li><a href="http://www.lysin-games.com/impressum">Impressum</a></li>
 			</ul>
-		</footer>
-	</body>
+        </footer>
+        
+        <script>
+            function setNickname() {
+                var input = document.getElementById('nickname').value;
+                if (input==='') {
+                    //TODO please enternickname
+                    console.log('empty String');
+                    return false;
+                } else if (input.length > maxNickname) {
+                    //TODO to long nickname
+                    console.log('too long nickname');
+                    return false;
+                }
+                return true;
+            }
+
+            function createGame() {
+                if (setNickname()) {
+                    window.location.href='/createGame.html';
+                }
+            }
+
+            function joinGame() {
+                if (setNickname()) {
+                    window.location.href='/joinGame.html';
+                }
+            }
+        </script>
+    </body>
 </html>
