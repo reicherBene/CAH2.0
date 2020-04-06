@@ -22,7 +22,7 @@
 
         var gameID = document.getElementById('gameID').value;
         var userID = 'default user';
-        var settings = [3, true, '5min'];
+        var settings = [3, '5min'];
         socket.emit('createGame', userID, gameID, settings);
         socket.on('duplicatedGameID', function(duplicate) {
             if (!duplicate){

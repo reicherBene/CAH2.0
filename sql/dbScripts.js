@@ -7,13 +7,14 @@ class Scripts {
 
   static gameToDB(gameID, settings) {
     gameID = "'" + gameID + "'";
+    console.log('settings: ' + settings);
     try {
-     settings = convert(settings);
+      settings = convert(settings);
     } catch (err) {
       console.log(err);
       return false;
     }
-    var req = "INSERT INTO games (gameID\, gamestate\, numPlayer\, maxPlayer\, burnround\, WC) VALUES (" + gameID + "\, 'waitStart'\, 0\, " + settings[0] + "\, " + settings[1] + "\, '" + settings[2] + "')";
+    var req = "INSERT INTO games (gameID, gamestate, numPlayer, maxPlayer, WC) VALUES (" + gameID + ", 'waitStart', 0, " + settings[0] + ", '" + settings[1] + "')";
     dbConnection.query(req);
   }
 
@@ -28,14 +29,20 @@ class Scripts {
   }
 
   static addPlayer(gameID, playerID, socketID) {
+    var req = "SELECT numPlayer FROM games WHERE gameID='" + gameID + "'";
+    dbConnection.query(req, function(err, result, fields){
+      if (result[0].numPlayer===0){
+        //set socket to master
+        var req = "UPDATE games SET master='" + socketID + "' WHERE gameID='" + gameID + "'";
+        dbConnection.query(req);
+      }
+    });
     var req = "UPDATE games SET numPlayer = numPlayer + 1 WHERE gameID = '" + gameID + "'";
     dbConnection.query(req);
     var req = "INSERT INTO player (playerID, gameID, socketID) VALUES ('" + playerID + "', '" + gameID + "', '" + socketID + "') ";
     dbConnection.query(req);
     console.log('Player joined game ' + gameID);
   }
-
-  
 }
 
 function convert(arr) {

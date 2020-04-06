@@ -1,5 +1,3 @@
-const Game = require('./old/Game.js');
-const Player = require('./old/Player.js');
 const DBScript = require('./sql/dbScripts.js');
 // console.log(DBScript)
 
@@ -45,32 +43,41 @@ function handler (req, res) {
 //TODO Lobby namespace
 //CAH namespace
 CAHNSP.on('connection', function(socket){
-    console.log('socket ' + socket.id + ' connected to namespace: ' + CAHNSP.name);    
+    // console.log('socket ' + socket.id + ' connected to namespace: ' + CAHNSP.name);    
 
     //gameloop
     socket.on('inGame', function(gameID, playerID){
-        // socket.join(gameID);
-        // var req = "INSERT INTO player (playerID, gameID, socketID) VALUES ('" + playerID + "', '" + gameID + "', '" + socket.id + "') ";
-        // console.log(req);
-        // dbConnection.query(req);
+        socket.join(gameID);
         console.log(socket.id + ' inGame: ' + gameID);
-    });
 
-    
-    
+        DBScript.addPlayer(gameID, playerID, socket.id);
+
+        // var roundData = [czar, BCID, WCID]; //TODO 
+        //boolean:czar, String:BCID, StringArray:WCID
+
+        var czar = true;
+        var BC = '';
+        var WC = [];
+        var scoreboard = [];
+        //send card information
+        socket.emit('roundInfo', czar, BC, WC, scoreboard);
+
+        //check all conntected
+         
+        // var req = "SELECT socketID FROM player WHERE gameID='" + gameID + "'";
+        // dbConnection.query(req, function(err, result, fields) {
+            
+        // });
+    });
 });
 
 //def namespace
 io.on('connection', function (socket) {
-    // console.log('connection of ' + socket.id);
-    totalConnections++;
-    // console.log('total connections: ' + totalConnections + ' (+) ' + socket.id);
     console.log(socket.id + " connected; " + io.sockets.server.eio.clientsCount);
+    // var newPlayerID = getNewPlayerID();
+    // socket.emit(playerID, newPlayerID);
 
     socket.on('disconnect', function(){
-        // console.log('disconnection of ' + socket.id);
-        totalConnections--;
-        // console.log('total connections: ' + totalConnections + ' (-)');
         console.log(socket.id + " disconnected; " + io.sockets.server.eio.clientsCount);
     });
 });
@@ -80,7 +87,9 @@ io.on('connection', function (socket) {
 DBNSP.on('connection', function(socket) {
     socket.on('getGames', function(){
         var req = "SELECT gameID FROM games WHERE gamestate='waitStart'";
-        getGames(req, socket);
+        dbConnection.query(req, function(err, result, fields){
+            socket.emit('res', result);
+        });
     });
 
     socket.on('createGame', function(userID, gameID, settings) {
@@ -102,7 +111,7 @@ DBNSP.on('connection', function(socket) {
     });
 
     socket.on('joinGame', function(gameID){
-        console.log('canjoinGame emitted: ' + gameID);
+        console.log('joinGame emitted: ' + gameID);
         var req = "SELECT numPlayer, maxPlayer FROM games WHERE gameID='" + gameID + "'";
         dbConnection.query(req, function(err, result, fields){
             var boolean;
@@ -121,18 +130,34 @@ DBNSP.on('connection', function(socket) {
 LOBBYNSP.on('connection', function(socket){
     
     socket.on('inWaitingLobby', function(gameID, playerID) {
+        //join room
         socket.join(gameID);
         console.log(socket.id + ' joined waitingLobby: ' + gameID);
-        DBScript.addPlayer(gameID, playerID, socket.id);
+
+        var req = "SELECT numPlayer FROM games WHERE gameID='" + gameID + "'";
+        dbConnection.query(req, function(err, result, fields){
+            // console.log(result);
+            if(result[0].numPlayer==0){
+                var req3 = "UPDATE games SET master='" + socket.id + "' WHERE gameID='" + gameID + "'";
+                dbConnection.query(req3);
+            }
+            var req2 = "UPDATE games SET numPlayer=numPlayer+1 WHERE gameID='" + gameID + "'";
+            dbConnection.query(req2);
+        });
+        // DBScript.addPlayer(gameID, playerID, socket.id);
     });
 
+    //only emitted by master
+    //TODO load WC/BC
     socket.on('gameStart', function(gameID){
+        // var numPlayerInLobby = io.of('lobby').adapter.rooms[gameID].length;
+
         var req = "SELECT numPlayer FROM games WHERE gameID='" + gameID + "'";
-        dbConnection.query(req, function(err , result, fields){
+        dbConnection.query(req, function(err , result, fields) {
             // if (result[0].numPlayer>=3){
                 var req = "UPDATE games SET gamestate = 'Running' WHERE gameid = '" + gameID + "'";
                 dbConnection.query(req);
-                console.log(io.of('lobby').adapter.rooms);
+                // console.log(io.of('lobby').adapter.rooms);
                 io.of('lobby').to(gameID).emit('startGame');
                 console.log('started game: ' + gameID);
             // } else {
@@ -143,34 +168,57 @@ LOBBYNSP.on('connection', function(socket){
 
     socket.on('disconnect', function(){
         console.log(socket.id + ' disconnected');
+
+        var req = "SELECT gameID FROM games WHERE master='" + socket.id + "'";
+        dbConnection.query(req, function(err, result, fields) {
+            if (result.length!=0) {
+                
+            }
+        });
+
+
+
+
+
+
+
         var gameID;
         var req = "SELECT gameID FROM player WHERE socketID='" + socket.id + "'";
-        dbConnection.query(req, function(err, result, fields){
+        dbConnection.query(req, function(err, result, fields) {
             if (result.length!=0){
                 gameID = result[0].gameID;
-                var req2 = "UPDATE games SET numPlayer = numPlayer - 1 WHERE gameID='" + gameID + "'";
-                dbConnection.query(req2);
-                var req3 = "DELETE FROM player WHERE socketID = '" + socket.id + "'";
-                dbConnection.query(req3);
-                var req4 = "DELETE FROM games WHERE gameId='" + gameID + "' AND numPlayer=0 AND gamestate='waitStart'";
-                dbConnection.query(req4);
+                var req4 = "SELECT gamestate, master FROM games WHERE gameID='" + gameID + "'";
+                dbConnection.query(req, function(err, result, fields){
+                    //noch in Lobby?
+                    console.log(result);
+                    if (result==='waitStart') {
+                        //in Lobby
+                        //update numPlayer in Lobby
+                        var req2 = "UPDATE games SET numPlayer = numPlayer - 1 WHERE gameID='" + gameID + "'";
+                        dbConnection.query(req2);
+
+                        var req4 = "DELETE FROM games WHERE gameId='" + gameID + "' AND numPlayer=0 AND gamestate='waitStart'";
+                        dbConnection.query(req4);
+                    }
+                });
+                
+                
             }
         });        
     });
 })
 
-function getGames(req, socket){
-    dbConnection.query(req, function(err, result, fields){
-        if (err) throw err;
-        // handlerResult(null, result, socket);
-        if (err) {
-            console.log(err);
-            return;
-        }
-        socket.emit('res', result)
-        // console.log(result);
-    });
-}
+// function getNewPlayerID() {
+//     while(true) {
+//         var newID = Math.random().toString(36).substring(2, 15);
+//         var req = "SELECT playerID FROM player WHERE playerID='" + newID + "'";
+//         dbConnection.query(req, function(err, result, fields) {
+//             if (result.length===0) {
+//                 return newID;
+//             }
+//         });
+//     }
+// }
 
 // function getNewGameID(){
 //     return '/defGameid';

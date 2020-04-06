@@ -40,7 +40,7 @@
         function join(gameID){
             // console.log('button pressed: ' + gameID);
             socket.emit('joinGame', gameID);
-            socket.on('canJoinGame', function(canJoin){
+            socket.on('canJoinGame', function(canJoin) {
                 if (canJoin){
                     console.log('button clicked: ' + gameID);
                     window.sessionStorage.setItem('gameID', gameID);

@@ -1,7 +1,14 @@
 <html>
 <head>
-
+    <script src="/socket.io/socket.io.js"></script>
 </head>
+
+<!-- <script> 
+    socket=io();
+    socket.on('playerID', function(playerID) {
+        window.sessionStorage.setItem('playerID', playerID);
+    });
+</script> -->
 
 <body>
     <button onclick="window.location.href='/createGame.html'">create Game</button>
